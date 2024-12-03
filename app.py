@@ -5,6 +5,7 @@ import os, sys, requests
 import boto3, json
 import argparse
 from dotenv import load_dotenv
+from botocore.exceptions import ClientError
 import os.path
 from pprint import pp
 from configurator.main import Configurator
@@ -33,6 +34,31 @@ def get_openai_key():
     response = client.get_secret_value(SecretId='openai/api-key')
     secret = json.loads(response['SecretString'])
     return secret['OPENAI_API_KEY']
+
+def get_secret():
+
+    secret_name = "openai/api-key"
+    region_name = "us-west-2"
+
+    # Create a Secrets Manager client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except ClientError as e:
+        # For a list of exceptions thrown, see
+        # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+        raise e
+
+    secret = get_secret_value_response['SecretString']
+
+    return secret
 
 if is_running_in_vscode(): sys.argv = [APP_NAME, '--verbose','config_elzenbos.yml']
 else: print("Not running in Visual Studio Code")
@@ -104,6 +130,7 @@ if args.verbose:
     pp(prompt_strings)
     pp(item_strings)
 
+openai_key = get_secret()
 openai_key = get_openai_key()
 
 # Open the API Key from the .env file
