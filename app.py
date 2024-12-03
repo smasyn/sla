@@ -132,15 +132,16 @@ if args.verbose:
 
 openai_key = get_secret()
 openai_key = get_openai_key()
+os.environ['OPENAI_API_KEY'] = openai_key
 
 # Open the API Key from the .env file
-if not is_running_on_ec2():
-    print("Running on local host...")
-    load_dotenv(".env", override=True)
-else:
-    print("Running in on EC2...")
-    openai_key = get_openai_key()
-    os.environ['OPENAI_API_KEY'] = openai_key
+#if not is_running_on_ec2():
+#    print("Running on local host...")
+#    load_dotenv(".env", override=True)
+#else:
+#    print("Running in on EC2...")
+#    openai_key = get_openai_key()
+#    os.environ['OPENAI_API_KEY'] = openai_key
 os.environ['USER_AGENT'] = 'myagent'
 
 # instantiate
