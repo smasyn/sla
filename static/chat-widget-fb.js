@@ -172,7 +172,9 @@
     // In summary, this code sends a POST request to the specified URL
     // with a JSON payload containing a message and a conversation_id.
     // Once the server responds, the response is parsed as JSON.
-    fetch('http://127.0.0.1:5000', {
+    // was http://127.0.0.1:5000
+    // http://34.219.148.154:5000
+    fetch('http://34.219.148.154:5000', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
