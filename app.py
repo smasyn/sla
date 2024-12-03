@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 import os, sys
 import argparse
@@ -104,6 +104,11 @@ CORS(app)
 def llm_response(input_message):
     output_message, _ = conv_chat.conversation(input_message)
     return output_message
+
+# Route to serve the HTML page
+@app.route("/")
+def index():
+    return render_template("index.html")  # Assumes index.html is in the 'templates' folder
 
 @app.route("/", methods=["POST"])
 def process_message():
