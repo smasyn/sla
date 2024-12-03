@@ -174,7 +174,7 @@
     // Once the server responds, the response is parsed as JSON.
     // was http://127.0.0.1:5000
     // http://34.219.148.154:5000
-    fetch('http://34.219.148.154:5000', {
+    fetch('http://34.219.148.154', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
