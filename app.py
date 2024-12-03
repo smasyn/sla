@@ -104,6 +104,8 @@ if args.verbose:
     pp(prompt_strings)
     pp(item_strings)
 
+openai_key = get_openai_key()
+
 # Open the API Key from the .env file
 if not is_running_on_ec2():
     print("Running on local host...")
@@ -111,6 +113,7 @@ if not is_running_on_ec2():
 else:
     print("Running in on EC2...")
     openai_key = get_openai_key()
+    os.environ['OPENAI_API_KEY'] = openai_key
 os.environ['USER_AGENT'] = 'myagent'
 
 # instantiate
