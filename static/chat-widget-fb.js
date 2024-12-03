@@ -173,8 +173,9 @@
     // with a JSON payload containing a message and a conversation_id.
     // Once the server responds, the response is parsed as JSON.
     // was http://127.0.0.1:5000
-    // http://34.219.148.154:5000
-    fetch('http://34.219.148.154', {
+    // http://34.219.148.154:5000 - changing public IP
+    // http://44.232.149.56 - elastic public IP
+    fetch('http://44.232.149.56', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
