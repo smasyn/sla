@@ -11,7 +11,8 @@ from langchain_openai.chat_models import ChatOpenAI
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.runnables import RunnableParallel,RunnablePassthrough
 from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_core.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel, Field
+# from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.messages import BaseMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.callbacks.base import BaseCallbackHandler
