@@ -1,7 +1,8 @@
 from flask_cors import CORS
 from flask import Flask, request, jsonify, render_template
 
-import os, sys
+import os, sys, requests
+import boto3, json
 import argparse
 from dotenv import load_dotenv
 import os.path
@@ -18,6 +19,20 @@ PROMPT_CONVERSATION = 0
 # %%
 # parsing the configuration file
 def is_running_in_vscode(): return 'VSCODE_PID' in os.environ
+
+def is_running_on_ec2():
+    # check for EC2 metadata
+    try:
+        response = requests.get("http://169.254.169.254/latest/meta-data/", timeout=1)
+        return response.status_code == 200
+    except requests.RequestException:
+        return False
+
+def get_openai_key():
+    client = boto3.client('secretsmanager', region_name='us-west-2')
+    response = client.get_secret_value(SecretId='openai/api-key')
+    secret = json.loads(response['SecretString'])
+    return secret['OPENAI_API_KEY']
 
 if is_running_in_vscode(): sys.argv = [APP_NAME, '--verbose','config_elzenbos.yml']
 else: print("Not running in Visual Studio Code")
@@ -90,7 +105,12 @@ if args.verbose:
     pp(item_strings)
 
 # Open the API Key from the .env file
-load_dotenv(".env", override=True)
+if not is_running_on_ec2():
+    print("Running on local host...")
+    load_dotenv(".env", override=True)
+else:
+    print("Running in on EC2...")
+    openai_key = get_openai_key()
 os.environ['USER_AGENT'] = 'myagent'
 
 # instantiate
