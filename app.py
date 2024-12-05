@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, url_for, redirect
 
 import os, sys, requests
 import boto3, json
@@ -160,6 +160,10 @@ def llm_response(input_message):
 @app.route("/")
 def index():
     return render_template("index.html")  # Assumes index.html is in the 'templates' folder
+
+@app.route('/about')
+def go_to_about():
+    return redirect(url_for('home') + '#about')
 
 @app.route("/usecase-1")
 def usecase1():
