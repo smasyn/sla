@@ -162,7 +162,7 @@ def index():
     return render_template("index.html")  # Assumes index.html is in the 'templates' folder
 
 @app.route("/usecase-1")
-def index():
+def usecase1():
     return render_template("usecase-1.html")  # Assumes index.html is in the 'templates' folder
 
 @app.route("/", methods=["POST"])
