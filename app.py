@@ -161,6 +161,10 @@ def llm_response(input_message):
 def index():
     return render_template("index.html")  # Assumes index.html is in the 'templates' folder
 
+@app.route("/usecase-1")
+def index():
+    return render_template("usecase-1.html")  # Assumes index.html is in the 'templates' folder
+
 @app.route("/", methods=["POST"])
 def process_message():
     data            = request.get_json()
