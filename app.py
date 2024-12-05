@@ -163,23 +163,23 @@ def index():
 
 @app.route('/about')
 def goto_about():
-    return redirect(url_for('home') + '#about')
+    return redirect(url_for('index') + '#about')
 
 @app.route('/services')
 def goto_services():
-    return redirect(url_for('home') + '#services')
+    return redirect(url_for('index') + '#services')
 
 @app.route('/usecases')
 def goto_usecases():
-    return redirect(url_for('home') + '#usecases')
+    return redirect(url_for('index') + '#usecases')
 
 @app.route('/testimonials')
 def goto_testimonials():
-    return redirect(url_for('home') + '#testimonials')
+    return redirect(url_for('index') + '#testimonials')
 
 @app.route('/contact')
 def goto_contact():
-    return redirect(url_for('home') + '#contact')
+    return redirect(url_for('index') + '#contact')
 
 @app.route("/usecase-1")
 def usecase1():
