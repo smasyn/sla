@@ -204,7 +204,14 @@ def process_message():
     #    "response": llm_response(message) + "\n message from id: " + conversation_id,
     #    # Add other response data as needed
     #}
-    output_message = llm_response(message)
+    if post_type == "LLM":
+        output_message = llm_response(message)
+    if post_type == "CONTACT":
+        output_message = "Contact Information received, thank you."
+        print(f"POST type received      : {post_type}")
+        print(f"input_message  received : {message}")
+        print(f"conversation id received: {conversation_id}")
+        print(f"output_message  returned: {output_message}")
 
     if args.verbose:
         print(f"POST type received      : {post_type}")
