@@ -162,8 +162,24 @@ def index():
     return render_template("index.html")  # Assumes index.html is in the 'templates' folder
 
 @app.route('/about')
-def go_to_about():
+def goto_about():
     return redirect(url_for('home') + '#about')
+
+@app.route('/services')
+def goto_services():
+    return redirect(url_for('home') + '#services')
+
+@app.route('/usecases')
+def goto_usecases():
+    return redirect(url_for('home') + '#usecases')
+
+@app.route('/testimonials')
+def goto_testimonials():
+    return redirect(url_for('home') + '#testimonials')
+
+@app.route('/contact')
+def goto_contact():
+    return redirect(url_for('home') + '#contact')
 
 @app.route("/usecase-1")
 def usecase1():
