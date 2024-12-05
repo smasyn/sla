@@ -162,7 +162,7 @@ def index():
     return render_template("index.html")  # Assumes index.html is in the 'templates' folder
 
 @app.route('/home')
-def goto_about():
+def goto_home():
     return redirect(url_for('index') + '#home')
 
 @app.route('/about')
