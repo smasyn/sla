@@ -81,6 +81,9 @@
 
   // see Powerpoint how this is set up
 
+  var globalLastInput  = "I am a global variable";
+  var globalLastOutput = "I am a global variable";
+
   function generateUniqueId() {
     const timestamp = Date.now().toString(36);
     const uuid = 'xxxxxx'.replace(/x/g, () => (Math.random() * 16 | 0).toString(16));
@@ -105,7 +108,7 @@
     // get the feedback message
     // TODO - get the last last input and last response
     // and send it to backend too
-    message = "positive"
+    message = globalLastInput + ";" + globalLastOutput + ";" + "positive"
     onUserFeedback(message)
   })
 
@@ -113,7 +116,7 @@
     // get the feedback message
     // TODO - get the last last input and last response
     // and send it to backend too
-    message = "negative"
+        message = globalLastInput + ";" + globalLastOutput + ";" + "negative"
     onUserFeedback(message)
   })
 
@@ -200,6 +203,10 @@
     .then(data => {
       // Process   
       console.log('API response:', data.response);
+
+      // set the last input and output message
+      globalLastInput  = message;
+      globalLastOutput = data.response;
   
       setTimeout(function() {
         reply(data.response);
@@ -257,7 +264,7 @@
     const chatMessages = document.getElementById('chat-messages');
     
     // create a new reply element
-    const replyElement = document.createElement('div');
+    const replyElement     = document.createElement('div');
     replyElement.className = 'flex mb-3';
     replyElement.innerHTML = `
       <div class="bg-gray-200 text-black rounded-lg py-2 px-4 max-w-[70%]">
