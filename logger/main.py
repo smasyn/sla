@@ -1,13 +1,14 @@
 class Logger:
 
-    def __init__(self):
+    def __init__(self,prefix = ""):
         # configure a logger file  
         from time import localtime, strftime
-
+        
+        prefix         = prefix if prefix == "" else prefix + "_"
         formatted_time = strftime("%Y%m%d_%H%M%S", localtime())
 
         # make an output subdirectory using today's date
-        self.out_path = "./log/log_" + formatted_time + ".txt"
+        self.out_path = "./log/log_" + prefix + formatted_time + ".txt"
         self.console  = False
         self.history  = ""
 
