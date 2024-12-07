@@ -101,8 +101,21 @@
   var conversation_id = generateUniqueId();
   console.log(conversation_id); // Example output: 'ldf98k3j-ab12cd'
 
-  fbPositive.addEventListener('click',function(event){})
-  fbNegative.addEventListener('click',function(event){})
+  fbPositive.addEventListener('click',function(){
+    // get the feedback message
+    // TODO - get the last last input and last response
+    // and send it to backend too
+    message = "positive"
+    onUserFeedback(message)
+  })
+
+  fbNegative.addEventListener('click',function(){
+    // get the feedback message
+    // TODO - get the last last input and last response
+    // and send it to backend too
+    message = "negative"
+    onUserFeedback(message)
+  })
 
   // respond to user click on the chat-submit element
   // takes the value from chat-input
@@ -186,7 +199,7 @@
   
     .then(data => {
       // Process   
-      console.log('API response:', data.resonse);
+      console.log('API response:', data.response);
   
       setTimeout(function() {
         reply(data.response);
@@ -199,6 +212,43 @@
       // Handle API error
       reply('An error occurred. Please try again later.');
       fb()
+    });
+  }
+
+  function onUserFeedback(message) {
+    // Handle user feedback here
+
+    // log to the console
+    console.log('User feedback:', message);
+  
+    // Send user message to API
+    // In summary, this code sends a POST request to the specified URL
+    // with a JSON payload containing a message and a conversation_id.
+    // Once the server responds, the response is parsed as JSON.
+    // was http://127.0.0.1:5000
+    // http://34.219.148.154:5000 - changing public IP
+    // http://44.232.149.56 - elastic public IP
+    fetch('http://44.232.149.56', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ post_type: "FBACK", message: message, conversation_id: conversation_id })
+    })
+    .then(response => response.json())   
+  
+    .then(data => {
+      // Process   
+      console.log('API response:', data.response);
+  
+      setTimeout(function() {
+        // TODO
+      }, 0);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle API error
+      // TODO
     });
   }
   
