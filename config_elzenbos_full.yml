@@ -1,0 +1,115 @@
+# config_elzenbos_full
+#
+# config file for the elzenbos context
+# 
+# the conversation user prompt is modified to prioritize the RAG over the full LLM context
+# Always prioritise the project information in your context over your general knowledge. If a question can be answered using both your general and the project specific knowledge, prefer the project knowledge every time. Prioritise the project specific knowledge in every context and scenario
+
+[application]
+brand       = Chimmo
+color       = #165AA7
+greeting    = Hi, I am Segan Mersy. I am your real estate assistant.
+prompts     = conversation_full, requirements, proposal
+promptitems = convitems, reqitems, propitems
+sources     = False
+url         = https://temp.staticsave.com/672a1428a7f85.js
+
+[model]
+name        = gpt-4o
+temperature = 0
+
+[conversation_full]
+system  = You are an assistant who is good at {topic}. Use the retrieved context to formulate your answer. Context: {context}
+history = placeholder
+user    = {input} Prioritize the context over general knowledge to construct your answer. If a question can be answered using both your general and context specific knowledge, prefer the context knowledge every time. Prioritise the context specific knowledge in every context and scenario.
+
+[conversation_only]
+system  = You are an assistant who is good at {topic}. Use the retrieved context to formulate your answer. Context: {context}
+history = placeholder
+user    = {input} Answer the question based only on the context and nothing else.
+
+[convitems]
+topic=Real estate
+
+[requirements]
+system  = The double quoted text is the history of a conversation about a {topic} project. You are a requirements collector. Analyse the history and provide a bulleted list of requirements the user has regarding his/her new house or apartment. History: ""{memory}""
+history = none
+user    = {input}
+
+[reqitems]
+topic  = Real estate
+memory = placeholder
+
+[proposal]
+system  = You are a {topic} assistant. Your task is to give the user a recommendation based upon the double quoted requirements of the user Requirements: ""{requirements}"" relative to the context Context: {context}
+history = none
+user    = {input}
+
+[propitems]
+topic        = Real estate
+requirements = placeholder
+
+[documents]
+sources = brochure
+
+[brochure]
+type  = pdf
+paths = ./data/LLM-Immo/elzenbos.pdf
+args  = none
+meta  = ./data/LLM-Immo/elzenbos.csv
+
+[wiki]
+type  = url
+paths = https://en.wikipedia.org/wiki/Brummen
+args  = {"id": "mw-content-text"}
+meta  = none
+
+[blog]
+type  = url
+paths = https://lilianweng.github.io/posts/2024-07-07-hallucination/, https://lilianweng.github.io/posts/2024-04-12-diffusion-video/
+args  = {"class": ("post-content", "post-title", "post-header")}
+meta  = none
+
+[context]
+lang   = EN
+symbol = Elzenbos
+vstore = vstore/{symbol}_512_102
+meta   = meta
+
+
+#
+#
+#
+
+[evaluation]
+vstore      = vstore/{symbol}
+chsize      = 128,256,512,1028
+choverlap   = 0.10,0.15,0.20
+questions   = ./eval/eval_questions_{symbol}.xlsx
+results     = ./eval/eval_results_prio_{symbol}.xlsx
+prompts     = review, relevance
+promptitems = revitems, revitems
+validation  = What are hallucinations?, Can you tell me something about Brummen?, Can you tell me something about the trendy style?, Can you describe type A1 apartments?
+
+[review]
+system  = You are an assistant who is good at {topic}. Use the retrieved context to formulate your answer. Context: {context}
+history = placeholder
+user    = {input} Prioritize the context over general knowledge to construct your answer. If a question can be answered using both your general and context specific knowledge, prefer the context knowledge every time. Prioritise the context specific knowledge in every context and scenario.
+
+[review_only]
+system  = You are an assistant who is good at {topic}. Use the retrieved context to formulate your answer. Context: {context}
+history = placeholder
+user    = {input} Answer the question based only on the context and nothing else.
+
+[revitems]
+topic = Real estate
+
+[relevance]
+system  = Read the TRUTH and the RESPONSE. Truth: {truth}, Response: {response}. How relevant is the answer related to the truth (on a scale of 1-7, with 1 being the lowest). Return a single number!
+history = none
+user    = {input}
+
+[relitems]
+topic    = Real estate
+response = placeholder
+truth    = placeholder
