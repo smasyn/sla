@@ -9,6 +9,7 @@ from botocore.exceptions import ClientError
 import os.path
 from pprint import pp
 from configurator.main import Configurator
+from logger.main import Logger
 from agtSLA.main import slaGPT
 
 APP_NAME          = "appbackend_lang.py"
@@ -99,11 +100,8 @@ model_name      = configParser.get_with_default('model','name','gpt-4o').lower()
 model_vstore    = configParser.get_with_default('context','vstore','vstore').lower().replace("{symbol}",context_name)
 model_temp      = int(configParser.get_with_default('model','temperature','0').lower())
 
-
 app_sources    = configParser.get('application', 'sources').lower() == "true"
-
 app_greeting   = configParser.get('application', 'greeting')
-
 
 prompts = configParser.get_list("application","prompts")
 if prompts is None:
@@ -143,6 +141,10 @@ os.environ['OPENAI_API_KEY'] = openai_key
 #    openai_key = get_openai_key()
 #    os.environ['OPENAI_API_KEY'] = openai_key
 os.environ['USER_AGENT'] = 'myagent'
+
+# initiate the loggers
+fbackLog = Logger(prefix = "feedback")
+ctactLog = Logger(prefix = "contact")
 
 # instantiate
 conv_chat = slaGPT(prompt_strings[PROMPT_CONVERSATION],model_vstore,model_name)
@@ -206,10 +208,16 @@ def process_message():
     #}
     if post_type == "LLM":
         output_message = llm_response(message)
+
     if post_type == "CONTACT":
         output_message = "Contact Information received, thank you."
+        msg = f"{conversation_id};{message}"
+        ctactLog.log("CONTACT",msg)
+
     if post_type == "FBACK":
         output_message = "Feedback received, thank you."
+        msg = f"{conversation_id};{message}"
+        fbackLog.log("FEEDBACK",msg)
     
     print(f"POST type received      : {post_type}")
     print(f"input_message  received : {message}")
