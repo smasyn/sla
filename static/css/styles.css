@@ -74,6 +74,7 @@ nav ul li a:hover {
     display: none;
     font-size: 24px;
     cursor: pointer;
+    z-index: 9999;
 }
 
 @media (max-width: 768px) {
