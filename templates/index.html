@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silver Lining Advisory | AI Consultancy</title>
+    <title>{{ _('Title') }}</title>
     <link rel="stylesheet" href="../static/css/styles.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -20,12 +20,12 @@
         -->
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#usecases">Use cases</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home">{{ _('Home') }}</a></li>
+                    <li><a href="#about">{{ _('AboutUs') }}</a></li>
+                    <li><a href="#services">{{ _('Services') }}</a></li>
+                    <li><a href="#usecases">{{ _('UseCases') }}</a></li>
+                    <li><a href="#testimonials">{{ _('Testimonials') }}</a></li>
+                    <li><a href="#contact">{{ _('Contact') }}</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -38,23 +38,23 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Your Silver Lining in AI</h1>
-            <p>Empowering businesses with cutting-edge artificial intelligence solutions.</p>
-            <a href="#services" class="btn">Our Services</a>
+            <h1>{{ _('hero_title') }}</h1>
+            <p>{{ _('hero_text_1') }}</p>
+            <a href="#services" class="btn">{{ _('hero_button') }}</a>
         </div>
     </section>
 
     <!-- About Us -->
     <section id="about" class="about">
         <div class="container">
-            <h2>Are you riding through an open space?</h2>
+            <h2>{{ _('about_title') }}</h2>
             <br>
             <p>
-                Silver Lining Advisory helps organizations find the opportunities in AI by harnessing its full potential through strategic C-suite advisory, innovative project leadership, and tailored solutions — closing gaps in AI integration for enhanced performance and decision-making.
+                {{ _('about_text_1') }}
             </p>
             <br>
             <p>
-                Merging a robust background in AI strategy with hands-on project management and a commitment to education, SLA empowers organizations to navigate the complexities of the digital landscape and maximize their data potential.
+                {{ _('about_text_2') }}
             </p>
         </div>
     </section>
@@ -62,48 +62,47 @@
     <!-- Services -->
     <section id="services" class="services">
         <div class="container">
-            <h2>Our Services</h2>
+            <h2>{{ _('services_title') }}</h2>
             <div class="service-cards">
                 <div class="card">
                     <i class="fas fa-robot fa-3x"></i>
-                    <h3>AI consulting</h3>
-                    <p>Provide AI leadership to guide transformations, build capabilities, define processes, and drive awareness through tailored strategies.</p>
+                    <h3>{{ _('services_sub_1_title') }}</h3>
+                    <p>{{ _('services_sub_1_text_1') }}</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-robot fa-3x"></i>
-                    <h3>Awareness and adoption</h3>
-                    <p>Develop and deliver AI and data analytics training, equipping teams to implement AI strategies effectively.
-                    </p>
+                    <h3>{{ _('services_sub_2_title') }}</h3>
+                    <p>{{ _('services_sub_2_text_1') }}</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-robot fa-3x"></i>
-                    <h3>Use case elicitation</h3>
-                    <p>Design a tailored AI use-case portfolio, with clear criteria, actionable solutions, and effective management to maximize ROI.</p>
+                    <h3>{{ _('services_sub_3_title') }}</h3>
+                    <p>{{ _('services_sub_3_text_1') }}</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-robot fa-3x"></i>
-                    <h3>Frameworks and processes</h3>
-                    <p>Develop AI frameworks and processes, guidelines and best practices.</p>
+                    <h3>{{ _('services_sub_4_title') }}</h3>
+                    <p>{{ _('services_sub_4_text_1') }}</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-robot fa-3x"></i>
-                    <h3>Project and change management</h3>
-                    <p>Drive AI/IT projects with expert leadership, progress reporting, and precise budget management to ensure client success.</p>
+                    <h3>{{ _('services_sub_5_title') }}</h3>
+                    <p>{{ _('services_sub_5_text_1') }}</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-robot fa-3x"></i>
-                    <h3>Software development</h3>
-                    <p>Experienced in software development, creating custom solutions to address business challenges and improve efficiency.</p>
+                    <h3>{{ _('services_sub_6_title') }}</h3>
+                    <p>{{ _('services_sub_6_text_1') }}</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-database fa-3x"></i>
-                    <h3>Data analytics</h3>
-                    <p>Transform your data into actionable insights with our analytics services.</p>
+                    <i class="fas fa-robot fa-3x"></i>
+                    <h3>{{ _('services_sub_7_title') }}</h3>
+                    <p>{{ _('services_sub_7_text_1') }}</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-database fa-3x"></i>
-                    <h3>Speaking engagements</h3>
-                    <p>Sharing insights on AI integration and its transformative business potential.</p>
+                    <i class="fas fa-robot fa-3x"></i>
+                    <h3>{{ _('services_sub_8_title') }}</h3>
+                    <p>{{ _('services_sub_8_text_1') }}</p>
                 </div>
             </div>
         </div>
@@ -112,13 +111,13 @@
     <!-- Use cases -->
     <section id="usecases" class="usecases">
         <div class="container">
-            <h2>Use cases</h2>
+            <h2>{{ _('usecases_title') }}</h2>
             <div class="usecase-cards">
                 <div class="usecase">
-                    <p>"AI-Powered Real Estate Assistant"</p>
+                    <p>{{ _('usecases_text_1') }}</p>
                     <br>
-                    <p>A chatbot designed to streamline the real estate discovery process. Users interact with a digital leaflet, enabling them to explore property details, specify preferences, and receive tailored property recommendations in real-time.</p>
-                    <a href="./usecase-1" class="btn">Try it</a>
+                    <p>{{ _('usecases_text_2') }}</p>
+                    <a href="./usecase-1" class="btn">{{ _('usecases_button') }}</a>
                 </div>
             </div>
         </div>
@@ -127,22 +126,22 @@
     <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2>What Our Clients Say</h2>
+            <h2>{{ _('testimon_title') }}</h2>
             <div class="testimonial-cards">
                 <div class="testimonial">
-                    <p>"Silver Lining Advisory transformed our data strategy. Their expertise in AI has been invaluable."</p>
-                    <h4>Jane Doe</h4>
-                    <span>CEO, Tech Innovators</span>
+                    <p>{{ _('testimon_card_1_text') }}</p>
+                    <h4>{{ _('testimon_card_1_name') }}</h4>
+                    <span>{{ _('testimon_card_1_function') }}</span>
                 </div>
                 <div class="testimonial">
-                    <p>"Their team provided exceptional AI solutions that significantly improved our operational efficiency."</p>
-                    <h4>John Smith</h4>
-                    <span>CTO, Future Solutions</span>
+                    <p>{{ _('testimon_card_2_text') }}</p>
+                    <h4>{{ _('testimon_card_2_name') }}</h4>
+                    <span>{{ _('testimon_card_2_function') }}</span>
                 </div>
                 <div class="testimonial">
-                    <p>"Professional, knowledgeable, and dedicated. Highly recommend Silver Lining for any AI consultancy needs."</p>
-                    <h4>Alice Johnson</h4>
-                    <span>COO, NextGen Enterprises</span>
+                    <p>{{ _('testimon_card_3_text') }}</p>
+                    <h4>{{ _('testimon_card_3_name') }}</h4>
+                    <span>{{ _('testimon_card_3_function') }}</span>
                 </div>
             </div>
         </div>
@@ -151,21 +150,21 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>{{ _('contact_title') }}</h2>
             <form id="contactform" action="#" method="POST" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                    <label for="name">{{ _('contact_name_label') }}</label>
+                    <input type="text" id="name" name="name" required placeholder="{{ _('contact_name_input') }}">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                    <label for="email">{{ _('contact_mail_label') }}</label>
+                    <input type="email" id="email" name="email" required placeholder="{{ _('contact_mail_input') }}">
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                    <label for="message">{{ _('contact_msg_label') }}</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="{{ _('contact_msg_input') }}"></textarea>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn">{{ _('contact_button_send') }}</button>
             </form>
         </div>
     </section>
@@ -179,7 +178,7 @@
                     <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
                     <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
                 </div>
-                <p>&copy; 2024 Silver Lining Advisory. All rights reserved.</p>
+                <p>&copy; {{ _('footer_text') }}</p>
             </div>
         </div>
     </footer>

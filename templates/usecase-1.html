@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silver Lining Advisory | AI Consultancy</title>
+    <title>{{ _('Title') }}</title>
     <link rel="stylesheet" href="../static/css/styles.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -21,12 +21,12 @@
         -->
             <nav>
                 <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="about">About Us</a></li>
-                    <li><a href="services">Services</a></li>
-                    <li><a href="usecases">Use cases</a></li>
-                    <li><a href="testimonials">Testimonials</a></li>
-                    <li><a href="contact">Contact</a></li>
+                    <li><a href="home">{{ _('Home') }}</a></li>
+                    <li><a href="about">{{ _('AboutUs') }}</a></li>
+                    <li><a href="services">{{ _('Services') }}</a></li>
+                    <li><a href="usecases">{{ _('UseCases') }}</a></li>
+                    <li><a href="testimonials">{{ _('Testimonials') }}</a></li>
+                    <li><a href="contact">{{ _('Contact') }}</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -38,21 +38,20 @@
     <!-- Services -->
     <section id="services" class="services">
         <div class="container">
-            <h2>Revolutionize real estate with our AI-powered chatbot</h2>
-            <p>Seamlessly gather client requirements, engage through interactive property leaflets, and deliver personalized recommendations—boosting leads and closing deals faster.
-                A chatbot designed to streamline the real estate discovery process. Users interact with a digital leaflet, enabling them to explore property details, specify preferences, and receive tailored property recommendations in real-time.
+            <h2>{{ _('usecase_1_title') }}</h2>
+            <p>{{ _('usecase_1_text_1') }}
             </p>
             <br>
-            <h3>Features</h3>
+            <h3>{{ _('usecase_1_features') }}</h3>
             <ul>
-                <li>Interactive chat interface integrated with property leaflets.</li>
-                <li>Requirement gathering through dynamic conversation (e.g., budget, location, size).
-                    AI-driven recommendation engine providing customized property suggestions.</li>
-                <li>Accessible 24/7 for seamless customer engagement and lead nurturing.</li>
+                <li>{{ _('usecase_1_features_1') }}</li>
+                <li>{{ _('usecase_1_features_2') }}</li>
+                <li>{{ _('usecase_1_features_3') }}</li>
+                <li>{{ _('usecase_1_features_4') }}</li>
             </ul>
             <br>
-            <h3>Target Audience</h3>
-            <p>Real estate agencies and brokers seeking innovative solutions to enhance client interaction, boost conversion rates, and deliver a premium customer experience.</p>
+            <h3>{{ _('usecase_1_audience') }}</h3>
+            <p>{{ _('usecase_1_audience_text') }}</p>
         </div>
     </section>
 
@@ -61,8 +60,8 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact Us</h2>
-            <a href="contact" class="btn">Request a Demo</a>
+            <h2>{{ _('contact_title') }}</h2>
+            <a href="contact" class="btn">{{ _('contact_button_req') }}</a>
         </div>
     </section>
 
@@ -75,7 +74,7 @@
                     <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
                     <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
                 </div>
-                <p>&copy; 2024 Silver Lining Advisory. All rights reserved.</p>
+                <p>&copy; {{ _('footer_text') }}</p>
             </div>
         </div>
     </footer>
