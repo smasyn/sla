@@ -1,0 +1,280 @@
+# English translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-12-08 10:52+0100\n"
+"PO-Revision-Date: 2024-12-08 08:03+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/index.html:6 templates/usecase-1.html:6
+msgid "Title"
+msgstr "Silver Lining Advisory | AI Consultancy"
+
+#: templates/index.html:23 templates/usecase-1.html:24
+msgid "Home"
+msgstr "Home"
+
+#: templates/index.html:24 templates/usecase-1.html:25
+msgid "AboutUs"
+msgstr "About us"
+
+#: templates/index.html:25 templates/usecase-1.html:26
+msgid "Services"
+msgstr "Services"
+
+#: templates/index.html:26 templates/usecase-1.html:27
+msgid "UseCases"
+msgstr "Use cases"
+
+#: templates/index.html:27 templates/usecase-1.html:28
+msgid "Testimonials"
+msgstr "Testimonials"
+
+#: templates/index.html:28 templates/usecase-1.html:29
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/index.html:41
+msgid "hero_title"
+msgstr "Your Silver Lining in AI"
+
+#: templates/index.html:42
+msgid "hero_text_1"
+msgstr "Empowering businesses with cutting-edge artificial intelligence solutions."
+
+#: templates/index.html:43
+msgid "hero_button"
+msgstr "Our Services"
+
+#: templates/index.html:50
+msgid "about_title"
+msgstr "Are you riding through an open space?"
+
+#: templates/index.html:53
+msgid "about_text_1"
+msgstr ""
+"Silver Lining Advisory helps organizations find the opportunities in AI "
+"by harnessing its full potential through strategic C-suite advisory, "
+"innovative project leadership, and tailored solutions — closing gaps in "
+"AI integration for enhanced performance and decision-making."
+
+#: templates/index.html:57
+msgid "about_text_2"
+msgstr ""
+"Merging a robust background in AI strategy with hands-on project "
+"management and a commitment to education, SLA empowers organizations to "
+"navigate the complexities of the digital landscape and maximize their "
+"data potential."
+
+#: templates/index.html:65
+msgid "services_title"
+msgstr "Our Services"
+
+#: templates/index.html:69
+msgid "services_sub_1_title"
+msgstr "AI consulting"
+
+#: templates/index.html:70
+msgid "services_sub_1_text_1"
+msgstr "Provide AI leadership to guide transformations, build capabilities, define processes, and drive awareness through tailored strategies."
+
+#: templates/index.html:74
+msgid "services_sub_2_title"
+msgstr "Awareness and adoption"
+
+#: templates/index.html:75
+msgid "services_sub_2_text_1"
+msgstr "Develop and deliver AI and data analytics training, equipping teams to implement AI strategies effectively."
+
+#: templates/index.html:79
+msgid "services_sub_3_title"
+msgstr "Use case elicitation"
+
+#: templates/index.html:80
+msgid "services_sub_3_text_1"
+msgstr "Design a tailored AI use-case portfolio, with clear criteria, actionable solutions, and effective management to maximize ROI."
+
+#: templates/index.html:84
+msgid "services_sub_4_title"
+msgstr "Frameworks and processes"
+
+#: templates/index.html:85
+msgid "services_sub_4_text_1"
+msgstr "Develop AI frameworks and processes, guidelines and best practices."
+
+#: templates/index.html:89
+msgid "services_sub_5_title"
+msgstr "Project and change management"
+
+#: templates/index.html:90
+msgid "services_sub_5_text_1"
+msgstr "Drive AI/IT projects with expert leadership, progress reporting, and precise budget management to ensure client success."
+
+#: templates/index.html:94
+msgid "services_sub_6_title"
+msgstr "Software development"
+
+#: templates/index.html:95
+msgid "services_sub_6_text_1"
+msgstr "Experienced in software development, creating custom solutions to address business challenges and improve efficiency."
+
+#: templates/index.html:99
+msgid "services_sub_7_title"
+msgstr "Data analytics"
+
+#: templates/index.html:100
+msgid "services_sub_7_text_1"
+msgstr "Transform your data into actionable insights with our analytics services."
+
+#: templates/index.html:104
+msgid "services_sub_8_title"
+msgstr "Speaking engagements"
+
+#: templates/index.html:105
+msgid "services_sub_8_text_1"
+msgstr "Sharing insights on AI integration and its transformative business potential."
+
+#: templates/index.html:114
+msgid "usecases_title"
+msgstr "Use cases"
+
+#: templates/index.html:117
+msgid "usecases_text_1"
+msgstr "AI-Powered Real Estate Assistant"
+
+#: templates/index.html:119
+msgid "usecases_text_2"
+msgstr "A chatbot designed to streamline the real estate discovery process. Users interact with a digital leaflet, enabling them to explore property details, specify preferences, and receive tailored property recommendations in real-time."
+
+#: templates/index.html:120
+msgid "usecases_button"
+msgstr "Try it"
+
+#: templates/index.html:129
+msgid "testimon_title"
+msgstr "What Our Clients Say"
+
+#: templates/index.html:132
+msgid "testimon_card_1_text"
+msgstr "Silver Lining Advisory transformed our data strategy. Their expertise in AI has been invaluable."
+
+#: templates/index.html:133
+msgid "testimon_card_1_name"
+msgstr "Jane Doe"
+
+#: templates/index.html:134
+msgid "testimon_card_1_function"
+msgstr "CEO, Tech Innovators"
+
+#: templates/index.html:137
+msgid "testimon_card_2_text"
+msgstr "Their team provided exceptional AI solutions that significantly improved our operational efficiency."
+
+#: templates/index.html:138
+msgid "testimon_card_2_name"
+msgstr "John Smith"
+
+#: templates/index.html:139
+msgid "testimon_card_2_function"
+msgstr "CTO, Future Solutions"
+
+#: templates/index.html:142
+msgid "testimon_card_3_text"
+msgstr "Professional, knowledgeable, and dedicated. Highly recommend Silver Lining for any AI consultancy needs."
+
+#: templates/index.html:143
+msgid "testimon_card_3_name"
+msgstr "Alice Johnson"
+
+#: templates/index.html:144
+msgid "testimon_card_3_function"
+msgstr "COO, NextGen Enterprises"
+
+#: templates/index.html:153 templates/usecase-1.html:63
+msgid "contact_title"
+msgstr "Contact Us"
+
+#: templates/index.html:156
+msgid "contact_name_label"
+msgstr "Name"
+
+#: templates/index.html:157
+msgid "contact_name_input"
+msgstr "Your name"
+
+#: templates/index.html:160
+msgid "contact_mail_label"
+msgstr "Email"
+
+#: templates/index.html:161
+msgid "contact_mail_input"
+msgstr "Your email"
+
+#: templates/index.html:164
+msgid "contact_msg_label"
+msgstr "Message"
+
+#: templates/index.html:165
+msgid "contact_msg_input"
+msgstr "Your message"
+
+#: templates/index.html:167
+msgid "contact_button_send"
+msgstr "Send Message"
+
+#: templates/index.html:181 templates/usecase-1.html:77
+msgid "footer_text"
+msgstr "2024 Silver Lining Advisory BV. All rights reserved."
+
+#: templates/usecase-1.html:41
+msgid "usecase_1_title"
+msgstr "Revolutionize real estate with our AI-powered chatbot"
+
+#: templates/usecase-1.html:42
+msgid "usecase_1_text_1"
+msgstr "Seamlessly gather client requirements, engage through interactive property leaflets, and deliver personalized recommendations—boosting leads and closing deals faster. A chatbot designed to streamline the real estate discovery process. Users interact with a digital leaflet, enabling them to explore property details, specify preferences, and receive tailored property recommendations in real-time."
+
+#: templates/usecase-1.html:45
+msgid "usecase_1_features"
+msgstr "Features"
+
+#: templates/usecase-1.html:47
+msgid "usecase_1_features_1"
+msgstr "Interactive chat interface integrated with property leaflets."
+
+#: templates/usecase-1.html:48
+msgid "usecase_1_features_2"
+msgstr "Requirement gathering through dynamic conversation (e.g., budget, location, size)."
+
+#: templates/usecase-1.html:49
+msgid "usecase_1_features_3"
+msgstr "AI-driven recommendation engine providing customized property suggestions."
+
+#: templates/usecase-1.html:50
+msgid "usecase_1_features_4"
+msgstr "Accessible 24/7 for seamless customer engagement and lead nurturing."
+
+#: templates/usecase-1.html:53
+msgid "usecase_1_audience"
+msgstr "Target Audience"
+
+#: templates/usecase-1.html:54
+msgid "usecase_1_audience_text"
+msgstr "Real estate agencies and brokers seeking innovative solutions to enhance client interaction, boost conversion rates, and deliver a premium customer experience."
+
+#: templates/usecase-1.html:64
+msgid "contact_button_req"
+msgstr "Request a demo"
+
