@@ -214,10 +214,10 @@ def usecase1():
 @app.route('/change-language/<lang>')
 def change_language(lang):
     if lang in app.config['BABEL_SUPPORTED_LOCALES']:
-        response = redirect(url_for('home'))
+        response = redirect(url_for('index'))
         response.set_cookie('locale', lang)  # Set the 'locale' cookie
         return response
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 @app.route("/", methods=["POST"])
 def process_message():
