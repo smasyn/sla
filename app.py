@@ -1,5 +1,6 @@
 from flask_cors import CORS
 from flask import Flask, request, jsonify, render_template, url_for, redirect
+from flask_babel import Babel, _
 
 import os, sys, requests
 import boto3, json
@@ -153,6 +154,25 @@ conv_chat.set_prompt_items(item_strings[PROMPT_CONVERSATION])
 app = Flask(__name__)
 CORS(app)
 
+# Configuration for supported languages
+app.config['BABEL_DEFAULT_LOCALE']          = 'nl'
+app.config['BABEL_SUPPORTED_LOCALES']       = ['nl', 'en']
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+
+babel = Babel(app)
+
+#def get_locale():
+#  return 'fr'
+
+def get_locale():
+    # Check if the 'locale' cookie exists
+    user_locale = request.cookies.get('locale')
+    if user_locale in app.config['BABEL_SUPPORTED_LOCALES']:
+        return user_locale
+    return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
+
+babel.init_app(app, locale_selector=get_locale)
+
 
 def llm_response(input_message):
     output_message, _ = conv_chat.conversation(input_message)
@@ -190,6 +210,14 @@ def goto_contact():
 @app.route("/usecase-1")
 def usecase1():
     return render_template("usecase-1.html")  # Assumes index.html is in the 'templates' folder
+
+@app.route('/change-language/<lang>')
+def change_language(lang):
+    if lang in app.config['BABEL_SUPPORTED_LOCALES']:
+        response = redirect(url_for('home'))
+        response.set_cookie('locale', lang)  # Set the 'locale' cookie
+        return response
+    return redirect(url_for('home'))
 
 @app.route("/", methods=["POST"])
 def process_message():
