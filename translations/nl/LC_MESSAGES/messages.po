@@ -1,0 +1,285 @@
+# Dutch translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-12-08 10:52+0100\n"
+"PO-Revision-Date: 2024-12-08 08:03+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: nl\n"
+"Language-Team: nl <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/index.html:6 templates/usecase-1.html:6
+msgid "Title"
+msgstr "Silver Lining Advisory | AI Consultancy"
+
+#: templates/index.html:23 templates/usecase-1.html:24
+msgid "Home"
+msgstr "Home"
+
+#: templates/index.html:24 templates/usecase-1.html:25
+msgid "AboutUs"
+msgstr "Over ons"
+
+#: templates/index.html:25 templates/usecase-1.html:26
+msgid "Services"
+msgstr "Diensten"
+
+#: templates/index.html:26 templates/usecase-1.html:27
+msgid "UseCases"
+msgstr "Voorbeelden"
+
+#: templates/index.html:27 templates/usecase-1.html:28
+msgid "Testimonials"
+msgstr "Getuigenissen"
+
+#: templates/index.html:28 templates/usecase-1.html:29
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/index.html:41
+msgid "hero_title"
+msgstr "Your Silver Lining in AI"
+
+#: templates/index.html:42
+msgid "hero_text_1"
+msgstr ""
+"Bedrijven voorzien van geavanceerde oplossingen voor kunstmatige "
+"intelligentie."
+
+#: templates/index.html:43
+msgid "hero_button"
+msgstr "Onze diensten"
+
+#: templates/index.html:50
+msgid "about_title"
+msgstr "Are you riding through an open space?"
+
+#: templates/index.html:53
+msgid "about_text_1"
+msgstr ""
+"Silver Lining Advisory helpt organisaties de kansen in AI te vinden en "
+"het volledige potentieel ervan te benutten door middel van strategisch C"
+"-suite-advies, innovatief projectleiderschap en op maat gemaakte "
+"oplossingen - het dichten van hiaten in AI-integratie voor verbeterde "
+"prestaties en besluitvorming."
+
+#: templates/index.html:57
+msgid "about_text_2"
+msgstr ""
+"Door een robuuste achtergrond in AI-strategie te combineren met hands-on "
+"projectmanagement en een toewijding aan opleiding, stelt SLA organisaties"
+" in staat om door de complexiteit van het digitale landschap te navigeren"
+" en hun datapotentieel te maximaliseren."
+
+#: templates/index.html:65
+msgid "services_title"
+msgstr "Onze diensten"
+
+#: templates/index.html:69
+msgid "services_sub_1_title"
+msgstr "AI-advies"
+
+#: templates/index.html:70
+msgid "services_sub_1_text_1"
+msgstr "Biedt AI-leiderschap om transformaties te begeleiden, capaciteiten op te bouwen, processen te definiëren en bewustzijn te vergroten door middel van op maat gemaakte strategieën."
+
+
+#: templates/index.html:74
+msgid "services_sub_2_title"
+msgstr "Bewustwording en adoptie"
+
+#: templates/index.html:75
+msgid "services_sub_2_text_1"
+msgstr "Ontwikkelt en geeft AI- en data-analysetraining, waarbij teams worden uitgerust om AI-strategieën effectief te implementeren."
+
+#: templates/index.html:79
+msgid "services_sub_3_title"
+msgstr "Activering van gebruiksscenario's"
+
+#: templates/index.html:80
+msgid "services_sub_3_text_1"
+msgstr "Ontwerp een op maat gemaakt AI-use-case-portfolio, met duidelijke criteria, bruikbare oplossingen en effectief beheer om de ROI te maximaliseren."
+
+#: templates/index.html:84
+msgid "services_sub_4_title"
+msgstr "Kaders en processen"
+
+#: templates/index.html:85
+msgid "services_sub_4_text_1"
+msgstr "Ontwikkelt AI-kaders en -processen, richtlijnen en best practices."
+
+#: templates/index.html:89
+msgid "services_sub_5_title"
+msgstr "Project- en verandermanagement"
+
+#: templates/index.html:90
+msgid "services_sub_5_text_1"
+msgstr "Stimuleert AI/IT-projecten met deskundig leiderschap, voortgangsrapportage en nauwkeurig budgetbeheer om het succes van de klant te garanderen."
+
+#: templates/index.html:94
+msgid "services_sub_6_title"
+msgstr "Softwareontwikkeling"
+
+#: templates/index.html:95
+msgid "services_sub_6_text_1"
+msgstr "Ervaren in softwareontwikkeling, het creëren van oplossingen op maat om zakelijke uitdagingen aan te pakken en de efficiëntie te verbeteren."
+
+#: templates/index.html:99
+msgid "services_sub_7_title"
+msgstr "Gegevensanalyse"
+
+#: templates/index.html:100
+msgid "services_sub_7_text_1"
+msgstr "Zet uw gegevens om in bruikbare inzichten met onze analysediensten."
+
+#: templates/index.html:104
+msgid "services_sub_8_title"
+msgstr "Spreekbeurten"
+
+#: templates/index.html:105
+msgid "services_sub_8_text_1"
+msgstr "Inzichten delen over AI-integratie en het transformatieve zakelijke potentieel ervan."
+
+#: templates/index.html:114
+msgid "usecases_title"
+msgstr "Gebruiksscenario's"
+
+#: templates/index.html:117
+msgid "usecases_text_1"
+msgstr "AI-aangedreven vastgoedassistent"
+
+#: templates/index.html:119
+msgid "usecases_text_2"
+msgstr "Een chatbot die is ontworpen om het ontdekkingsproces van onroerend goed te stroomlijnen. Gebruikers communiceren met een digitale folder, waardoor ze de details van het onroerend goed kunnen verkennen, voorkeuren kunnen specificeren en in realtime op maat gemaakte aanbevelingen voor onroerend goed kunnen ontvangen."
+
+
+#: templates/index.html:120
+msgid "usecases_button"
+msgstr "Probeer het"
+
+#: templates/index.html:129
+msgid "testimon_title"
+msgstr "Wat onze klanten zeggen"
+
+#: templates/index.html:132
+msgid "testimon_card_1_text"
+msgstr "Silver Lining Advisory heeft onze datastrategie getransformeerd. Hun expertise op het gebied van AI is van onschatbare waarde geweest."
+
+#: templates/index.html:133
+msgid "testimon_card_1_name"
+msgstr "Jane Doe"
+
+#: templates/index.html:134
+msgid "testimon_card_1_function"
+msgstr "CEO, technische innovators"
+
+#: templates/index.html:137
+msgid "testimon_card_2_text"
+msgstr "Hun team leverde uitzonderlijke AI-oplossingen die onze operationele efficiëntie aanzienlijk verbeterden."
+
+#: templates/index.html:138
+msgid "testimon_card_2_name"
+msgstr "Jan Smit"
+
+#: templates/index.html:139
+msgid "testimon_card_2_function"
+msgstr "CTO, toekomstige oplossingen"
+
+#: templates/index.html:142
+msgid "testimon_card_3_text"
+msgstr "Professioneel, deskundig en toegewijd. Beveel Silver Lining ten zeerste aan voor alle AI-adviesbehoeften."
+
+#: templates/index.html:143
+msgid "testimon_card_3_name"
+msgstr "Alice Johnson"
+
+#: templates/index.html:144
+msgid "testimon_card_3_function"
+msgstr "COO, NextGen Enterprises"
+
+#: templates/index.html:153 templates/usecase-1.html:63
+msgid "contact_title"
+msgstr "Neem contact met ons op"
+
+#: templates/index.html:156
+msgid "contact_name_label"
+msgstr "Naam"
+
+#: templates/index.html:157
+msgid "contact_name_input"
+msgstr "Uw naam"
+
+#: templates/index.html:160
+msgid "contact_mail_label"
+msgstr "E-mail"
+
+#: templates/index.html:161
+msgid "contact_mail_input"
+msgstr "Uw e-mail"
+
+#: templates/index.html:164
+msgid "contact_msg_label"
+msgstr "Bericht"
+
+#: templates/index.html:165
+msgid "contact_msg_input"
+msgstr "Uw bericht"
+
+#: templates/index.html:167
+msgid "contact_button_send"
+msgstr "Bericht verzenden"
+
+#: templates/index.html:181 templates/usecase-1.html:77
+msgid "footer_text"
+msgstr "2024 Silver Lining Advisory BV. Alle rechten voorbehouden."
+
+#: templates/usecase-1.html:41
+msgid "usecase_1_title"
+msgstr "Een revolutie teweegbrengen in onroerend goed met onze AI-aangedreven chatbot"
+
+#: templates/usecase-1.html:42
+msgid "usecase_1_text_1"
+msgstr "Verzamel naadloos de eisen van klanten, communiceer via interactieve vastgoedfolders en lever gepersonaliseerde aanbevelingen, waardoor leads worden gestimuleerd en deals sneller worden gesloten. Een chatbot die is ontworpen om het ontdekkingsproces van onroerend goed te stroomlijnen. Gebruikers communiceren met een digitale folder, waardoor ze de details van het onroerend goed kunnen verkennen, voorkeuren kunnen specificeren en in realtime op maat gemaakte aanbevelingen voor onroerend goed kunnen ontvangen."
+
+#: templates/usecase-1.html:45
+msgid "usecase_1_features"
+msgstr "Kenmerken"
+
+#: templates/usecase-1.html:47
+msgid "usecase_1_features_1"
+msgstr "Interactieve chatinterface geïntegreerd met vastgoedfolders."
+
+#: templates/usecase-1.html:48
+msgid "usecase_1_features_2"
+msgstr "Het verzamelen van vereisten door middel van dynamische gesprekken (bijv. budget, locatie, grootte)."
+
+#: templates/usecase-1.html:49
+msgid "usecase_1_features_3"
+msgstr "AI-gestuurde aanbevelingsengine die op maat gemaakte vastgoedsuggesties biedt."
+
+#: templates/usecase-1.html:50
+msgid "usecase_1_features_4"
+msgstr "24/7 toegankelijk voor naadloze klantbetrokkenheid en lead generatie."
+
+#: templates/usecase-1.html:53
+msgid "usecase_1_audience"
+msgstr "Doelgroep"
+
+#: templates/usecase-1.html:54
+msgid "usecase_1_audience_text"
+msgstr "Makelaars en agentschappen die op zoek zijn naar innovatieve oplossingen om de interactie met de klant te verbeteren, de conversieratio's te verhogen en een eersteklas klantervaring te bieden."
+
+#: templates/usecase-1.html:64
+msgid "contact_button_req"
+msgstr "Vraag een demo aan"
+
