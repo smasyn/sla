@@ -42,6 +42,18 @@ msgstr "Voorbeelden"
 msgid "Testimonials"
 msgstr "Getuigenissen"
 
+#: templates/index.html:27 templates/usecase-1.html:28
+msgid "Language"
+msgstr "Taal"
+
+#: templates/index.html:27 templates/usecase-1.html:28
+msgid "Language_NL"
+msgstr "nl - Nederlands"
+
+#: templates/index.html:27 templates/usecase-1.html:28
+msgid "Language_EN"
+msgstr "en - English"
+
 #: templates/index.html:28 templates/usecase-1.html:29
 msgid "Contact"
 msgstr "Contact"
