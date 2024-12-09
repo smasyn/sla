@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ _('Title') }}</title>
     <link rel="stylesheet" href="../static/css/styles.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kTc25TrW8FQg6H9cX14UwF4RJfwv9kHhRZFr7ypS/abV0hfWVn7EHH8y1lE6XdkO9G++0nsMaqXBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 1404 insert -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 </head>
 <body>
     <!-- Header -->
@@ -20,10 +22,12 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-            <!-- <div class="logo-container">
-                <img src="images/logo-small.png" alt="Silver Lining Advisory Logo">
-            </div>
-        -->
+            <!-- logo out
+                  <div class="logo-container">
+                    <img src="images/logo-small.png" alt="Silver Lining Advisory Logo">
+                  </div>
+            -->
+            <!-- 1404 delete navbar switch
             <nav>
                 <ul>
                     <li><a href="#home">{{ _('Home') }}</a></li>
@@ -35,6 +39,32 @@
                 </ul>
             </nav>
             <div class="hamburger">☰</div>
+            -->
+
+            <!-- 1404 insert new navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">{{ _('Home') }}<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">{{ _('AboutUs') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">{{ _('Services') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">{{ _('UseCases') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">{{ _('Testimonials') }}</a></li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ _('Language') }}</a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/change-language/nl">{{ _('Language_NL') }}</a>
+                        <a class="dropdown-item" href="/change-language/en">{{ _('Language_EN') }}</a>
+                      </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">{{ _('Contact') }}</a></li>
+                  </ul>
+                </div>
+              </nav>
         </div>
     </header>
 
@@ -188,5 +218,10 @@
 
     <!-- JavaScript for Hamburger Menu -->
     <script src="../static/js/scripts.js"></script>
+    <!-- 1404 inserted scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
 </body>
 </html>
