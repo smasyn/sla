@@ -15,7 +15,7 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    overflow: hidden;
+    overflow: visible !important; /* Ensure it doesn't clip the dropdown */
 }
 
 /* Header */
