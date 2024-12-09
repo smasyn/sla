@@ -47,7 +47,6 @@ header .logo-container img {
 
 nav {
     float: right;
-    position: relative; /* <-- 1449 added declaration */
 }
 
 nav ul {
