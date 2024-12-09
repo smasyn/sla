@@ -47,6 +47,7 @@ header .logo-container img {
 
 nav {
     float: right;
+    position: relative;
     z-index: 9999;
 }
 
