@@ -51,10 +51,6 @@ nav {
 
 nav ul {
     list-style: none;
-
-    position: absolute;  /* <-- 1449 added declarations */
-    left: 0; top: 100%;  /*     here               */
-    width: 100%;         /*     and here...        */
 }
 
 nav ul li {
