@@ -1,9 +1,10 @@
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-
-hamburger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
+// 1404 delete
+//const hamburger = document.querySelector('.hamburger');
+//const nav = document.querySelector('nav');
+//
+//hamburger.addEventListener('click', () => {
+//    nav.classList.toggle('active');
+//});
 
 document.getElementById('contactform').addEventListener('submit', function(event) {
     event.preventDefault();  // Prevent the form from submitting normally
