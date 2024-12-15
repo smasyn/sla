@@ -174,8 +174,14 @@ def get_locale():
 babel.init_app(app, locale_selector=get_locale)
 
 
-def llm_response(input_message):
-    output_message, _ = conv_chat.conversation(input_message)
+def llm_response(input_message,conversation_id,project_id):
+    if project_id == "None" or project_id == "none":
+        input_filter = None
+    else:
+        input_filter = {'pid': project_id}
+
+    output_message, _ = conv_chat.conversation(input_message,input_filter,conversation_id,False)
+    
     return output_message
 
 # Route to serve the HTML page
@@ -225,6 +231,7 @@ def process_message():
     post_type       = data.get("post_type")
     message         = data.get("message")
     conversation_id = data.get("conversation_id")
+    project_id      = data.get("project_id")
 
     # Process the message here (e.g., perform calculations, send notifications, etc.)
 
