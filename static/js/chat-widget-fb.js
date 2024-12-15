@@ -1,4 +1,17 @@
 (function() {
+  // Get the current script tag that is executing
+  const currentScript = document.currentScript;
+
+  // Extract the URL of the script
+  const scriptUrl = currentScript.src; // e.g., "https://example.com/example.js?nl=en&pid=123"
+  
+  // Parse the query parameters from the script URL
+  const urlObj = new URL(scriptUrl);
+  const params = urlObj.searchParams;
+  
+  console.log('lang :', params.get('lang'));   // "en"
+  console.log('pid  :', params.get('pid'));  // "ldf98k3j-ab12cd"
+
   // Tailwind stylesheet
   document.head.insertAdjacentHTML('beforeend', '<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css" rel="stylesheet">');
 
@@ -196,7 +209,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ post_type: "LLM", message: message, conversation_id: conversation_id })
+      body: JSON.stringify({ post_type: "LLM", message: message, conversation_id: conversation_id, project_id: params.get('pid') })
     })
     .then(response => response.json())   
   
@@ -240,7 +253,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ post_type: "FBACK", message: message, conversation_id: conversation_id })
+      body: JSON.stringify({ post_type: "FBACK", message: message, conversation_id: conversation_id, project_id: params.get('pid') })
     })
     .then(response => response.json())   
   

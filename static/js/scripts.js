@@ -11,8 +11,10 @@ document.getElementById('contactform').addEventListener('submit', function(event
 
     const data = {
         post_type      : "CONTACT",
-        conversation_id: document.getElementById('email').value,
         message        : document.getElementById('message').value,
+        conversation_id: document.getElementById('email').value,
+        project_id     : "none",
+
     };
 
     fetch('http://44.232.149.56', {
