@@ -250,9 +250,10 @@ def process_message():
         fbackLog.log("FEEDBACK",msg)
     
     print(f"POST type received      : {post_type}")
-    print(f"input_message  received : {message}")
+    print(f"input message received  : {message}")
     print(f"conversation id received: {conversation_id}")
-    print(f"output_message  returned: {output_message}")
+    print(f"project id received     : {project_id}")
+    print(f"output message returned : {output_message}")
     
     if args.verbose:
         print(f"POST type received      : {post_type}")
