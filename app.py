@@ -236,13 +236,8 @@ def process_message():
     # Process the message here (e.g., perform calculations, send notifications, etc.)
 
     # Return a response as JSON
-    # TODO - add a conversation id
-    #response = {
-    #    "response": llm_response(message) + "\n message from id: " + conversation_id,
-    #    # Add other response data as needed
-    #}
     if post_type == "LLM":
-        output_message = llm_response(message)
+        output_message = llm_response(message,conversation_id,project_id)
 
     if post_type == "CONTACT":
         output_message = "Contact Information received, thank you."
