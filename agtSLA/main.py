@@ -200,9 +200,6 @@ class slaGPT:
             "response": chain_with_history
         }
 
-        print(dictX)
-        print(dictY)
-
         # chain_parallel is a sequence which you will invoke
         # https://python.langchain.com/docs/how_to/dynamic_chain/
         chain_parallel = ( dictX | RunnableParallel (dictY))
@@ -241,9 +238,9 @@ class slaGPT:
             # damn this line caused alot of trouble
             # dctInputData['context'] = self.retriever | self._format_docs
 
-            print(dct_search_kwargs)
-            print(retrievedDocs)
-            print(dctInputData)
+            # print(dct_search_kwargs)
+            # print(retrievedDocs)
+            # print(dctInputData)
         
         model_output   = self.chat_model.invoke(dctInputData,config={"configurable": {"session_id": session_id}})
         output_message = model_output.content
@@ -277,7 +274,7 @@ class slaGPT:
         retrievedDocs           = modified_retriever.invoke(user_question)
         dctInputData['context'] = self._format_docs(retrievedDocs)
 
-        print(dctInputData)
+        # print(dctInputData)
         
         model_output   = self.chat_model_wsrc.invoke(dctInputData,
                                                      config = {"configurable": {"session_id": session_id}})
