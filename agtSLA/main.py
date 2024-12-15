@@ -11,8 +11,7 @@ from langchain_openai.chat_models import ChatOpenAI
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.runnables import RunnableParallel,RunnablePassthrough
 from langchain_core.chat_history import BaseChatMessageHistory
-from pydantic import BaseModel, Field
-# from langchain_core.pydantic_v1 import BaseModel, Field
+from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.messages import BaseMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.callbacks.base import BaseCallbackHandler
@@ -53,7 +52,15 @@ class slaGPT:
             vstore = None
         
         self.model_vstore      = vstore
-        self.retriever         = self._init_retriever()
+        #1607
+        #self.retriever             = self._init_retriever()
+        self.store, self.retriever  = self._init_retriever()
+
+        dct_search_kwargs = {
+                    "filter": {'id':'m4mskk7m-9a8fed'},  # Filter to only to id
+                    "k"     : 4             # Override the default k=2 to get top 3 results
+                }
+        self.modified_retriever     = self.store.as_retriever(search_kwargs = dct_search_kwargs)
 
         self.prompt_strings    = prompt_strings
         self.prompt, self.prompt_messages, self.prompt_items  = self._init_prompt()
@@ -125,7 +132,9 @@ class slaGPT:
         search_kwargs = {'k': 4 }
         retriever     = vectorstore.as_retriever(kwargs=search_kwargs)
 
-        return retriever
+        # 1607
+        # return retriever
+        return vectorstore, retriever
 
     def _get_by_session_id(self,session_id: str) -> BaseChatMessageHistory:
         if session_id not in self.dctHistory:
@@ -137,8 +146,7 @@ class slaGPT:
     
     def _init_model(self):
 
-        llm = ChatOpenAI(model_name  = self.model_name,
-                         temperature = 0)
+        llm   = ChatOpenAI(model_name  = self.model_name, temperature = 0)
         chain = self.prompt| llm
 
         # by specifying the keys the Runnable accepts a dict as input
@@ -158,7 +166,7 @@ class slaGPT:
             # print("WARNING - vstore is None")
             return None
 
-        llm   = ChatOpenAI(model_name  = self.model_name,temperature = 0)
+        llm   = ChatOpenAI(model_name  = self.model_name, temperature = 0)
         chain = self.prompt| llm
 
         # by specifying the keys the Runnable accepts a dict as input
@@ -176,9 +184,9 @@ class slaGPT:
         lstKeys   = []
         lstValues = []
         
-        lstKeys   = ["context","input"]
-        lstValues = [itemgetter("input") | self.retriever,
-                itemgetter("input")]
+        lstKeys   = ["context", "input"]
+        #lstValues = [itemgetter("input") | self.retriever, itemgetter("input")]
+        lstValues = [itemgetter("context"), itemgetter("input")]
         
         for k in list(self.prompt_items.keys()):
             lstKeys.append(k)
@@ -187,9 +195,12 @@ class slaGPT:
         dictX = dict(zip(lstKeys,lstValues))
 
         dictY = {
-            "context": itemgetter("context"), # This adds the retrieved context as well to the chain
+            "context" : itemgetter("context"), # This adds the retrieved context as well to the chain
             "response": chain_with_history
         }
+
+        print(dictX)
+        print(dictY)
 
         # chain_parallel is a sequence which you will invoke
         # https://python.langchain.com/docs/how_to/dynamic_chain/
@@ -197,23 +208,41 @@ class slaGPT:
 
         return chain_parallel
     
-    def conversation(self,user_question,bSources=False):
+    def conversation(self, user_question, user_filter = None,session_id = "foo", bSources=False):
         if not bSources:
-            return self.conversation_nosources(user_question)
+            return self.conversation_nosources(user_question,user_filter,session_id)
         else:
-            return self.conversation_withsources(user_question)
+            return self.conversation_withsources(user_question,user_filter,session_id)
 
-    def conversation_nosources(self,user_question,session_id="foo"):
+    def conversation_nosources(self, user_question, user_filter = None, session_id = "foo"):
+        # F*CK code does not run when declaring modified_retriever in self 
 
         # conversation without sources returned
         dctInputData            = self.prompt_items
         dctInputData['input']   = user_question
 
         if not (self.model_vstore is None):
-            retrievedDocs           = self.retriever.invoke(user_question)
+            # filter the retrieval
+            if not (user_filter is None):
+                dct_search_kwargs = {
+                    "filter": user_filter,  # Filter to only to id
+                    "k"     : 4             # Override the default k=2 to get top 3 results
+                }
+                modified_retriever = self.store.as_retriever(search_kwargs = dct_search_kwargs)
+            else:
+                dct_search_kwargs = {
+                    "k"     : 4             # Override the default k=2 to get top 3 results
+                }
+                modified_retriever = self.store.as_retriever(search_kwargs = dct_search_kwargs)
+
+            retrievedDocs           = modified_retriever.invoke(user_question)
             dctInputData['context'] = self._format_docs(retrievedDocs)
             # damn this line caused alot of trouble
             # dctInputData['context'] = self.retriever | self._format_docs
+
+            print(dct_search_kwargs)
+            print(retrievedDocs)
+            print(dctInputData)
         
         model_output   = self.chat_model.invoke(dctInputData,config={"configurable": {"session_id": session_id}})
         output_message = model_output.content
@@ -221,7 +250,7 @@ class slaGPT:
 
         return output_message, output_sources
     
-    def conversation_withsources(self,user_question,session_id="foo"):
+    def conversation_withsources(self, user_question, user_filter = None, session_id = "foo"):
         # conversation with sources returned
 
         if self.model_vstore is None:
@@ -230,6 +259,24 @@ class slaGPT:
         
         dctInputData          = self.prompt_items
         dctInputData['input'] = user_question
+
+        # filter the retrieval
+        if not (user_filter is None):
+            dct_search_kwargs = {
+                "filter": user_filter,  # Filter to only to id
+                "k"     : 4  # Override the default k=2 to get top 3 results
+            }
+            modified_retriever = self.store.as_retriever(search_kwargs = dct_search_kwargs)
+        else:
+            dct_search_kwargs = {
+                "k"     : 4  # Override the default k=2 to get top 3 results
+            }
+            modified_retriever = self.store.as_retriever(search_kwargs = dct_search_kwargs)
+
+        retrievedDocs           = modified_retriever.invoke(user_question)
+        dctInputData['context'] = self._format_docs(retrievedDocs)
+
+        print(dctInputData)
         
         model_output   = self.chat_model_wsrc.invoke(dctInputData,
                                                      config = {"configurable": {"session_id": session_id}})
