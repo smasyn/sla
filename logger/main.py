@@ -1,16 +1,18 @@
 class Logger:
 
-    def __init__(self,prefix = ""):
-        # configure a logger file  
+    def __init__(self, prefix="log"):
         from time import localtime, strftime
-        
-        prefix         = prefix if prefix == "" else prefix + "_"
+        import os
+
         formatted_time = strftime("%Y%m%d_%H%M%S", localtime())
 
-        # make an output subdirectory using today's date
-        self.out_path = "./log/log_" + prefix + formatted_time + ".txt"
-        self.console  = False
-        self.history  = ""
+        os.makedirs("./log", exist_ok=True)
+
+        self.out_path = (
+            f"./log/{prefix}_{formatted_time}.txt"
+        )
+        self.console = False
+        self.history = ""
 
     def log(self,tag,msg,console=False):
             # append to a logger file  
