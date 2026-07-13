@@ -11,6 +11,8 @@ import os.path
 from pprint import pp
 from configurator.main import Configurator
 from logger.main import Logger
+
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
 from agtSLA.main import slaGPT
 
 APP_NAME          = "appbackend_lang.py"
@@ -184,6 +186,95 @@ def llm_response(input_message,conversation_id,project_id):
     
     return output_message
 
+import json
+
+#
+# GROOVELYTICS COACHING
+#
+
+def generate_groovelytics_coaching(
+    analysis,
+    session_id
+):
+    prompt = f"""
+You are the Groovelytics drum performance coach.
+
+Analyze this completed drum-practice session using only the supplied
+measurements.
+
+SESSION DATA
+
+{json.dumps(analysis, indent=2)}
+
+Return valid JSON only, with exactly this structure:
+
+{{
+  "headline": "short headline",
+  "summary": "concise session summary",
+  "strength": {{
+    "title": "main strength",
+    "description": "evidence-based explanation"
+  }},
+  "improvement": {{
+    "title": "single highest-priority improvement",
+    "description": "evidence-based explanation"
+  }},
+  "recommendation": {{
+    "title": "practice action",
+    "instruction": "specific practical instruction"
+  }},
+  "confidence": 0.0
+}}
+
+RULES
+
+- Use only the supplied measurements.
+- Do not invent instrument-specific findings.
+- Do not invent measure-specific findings.
+- Do not diagnose grip, posture, tension, coordination, or physical technique.
+- Explain the meaning of the measurements rather than merely repeating them.
+- Be encouraging, direct, and concise.
+- Keep the headline below 12 words.
+- Keep the summary below 60 words.
+- Return JSON only.
+- Do not use markdown or code fences.
+"""
+
+    output_message = llm_response(
+        input_message=prompt,
+        conversation_id=f"groovelytics-{session_id}",
+        project_id="None"
+    )
+
+    if not isinstance(output_message, str):
+        raise ValueError(
+            "The coaching response was not text."
+        )
+
+    cleaned_output = clean_json_response(
+        output_message
+    )
+
+    return json.loads(cleaned_output)
+
+def clean_json_response(output_message):
+    cleaned = output_message.strip()
+
+    if cleaned.startswith("```json"):
+        cleaned = cleaned[len("```json"):]
+
+    elif cleaned.startswith("```"):
+        cleaned = cleaned[len("```"):]
+
+    if cleaned.endswith("```"):
+        cleaned = cleaned[:-3]
+
+    return cleaned.strip()
+
+#
+# END GROOVELYTICS COACHING
+#
+
 # Route to serve the HTML page
 @app.route("/")
 def index():
@@ -249,12 +340,6 @@ def process_message():
         msg = f"{conversation_id};{message}"
         fbackLog.log("FEEDBACK",msg)
     
-    print(f"POST type received      : {post_type}")
-    print(f"input message received  : {message}")
-    print(f"conversation id received: {conversation_id}")
-    print(f"project id received     : {project_id}")
-    print(f"output message returned : {output_message}")
-    
     if args.verbose:
         print(f"POST type received      : {post_type}")
         print(f"input_message  received : {message}")
@@ -268,9 +353,83 @@ def process_message():
     }
     return jsonify(response)
 
+#
+# GROOVELYTICS COACHING ENDPOINT
+#
+@app.route(
+    "/groovelytics/session-coaching",
+    methods=["POST"]
+)
+def groovelytics_session_coaching():
+    data = request.get_json(silent=True)
+
+    if not isinstance(data, dict):
+        return jsonify({
+            "error": "A JSON request body is required."
+        }), 400
+
+    session_id = data.get("sessionId")
+
+    prompt_version = data.get(
+        "promptVersion",
+        "session-performance-v1"
+    )
+
+    analysis = data.get("analysis")
+
+    if not session_id:
+        return jsonify({
+            "error": "sessionId is required."
+        }), 400
+
+    if not isinstance(analysis, dict):
+        return jsonify({
+            "error": "analysis must be a JSON object."
+        }), 400
+
+    try:
+        coaching = generate_groovelytics_coaching(
+            analysis=analysis,
+            session_id=session_id
+        )
+
+        response = {
+            "sessionId": session_id,
+            "promptVersion": prompt_version,
+            "model": "existing-openai-model",
+            "coaching": coaching
+        }
+
+        return jsonify(response), 200
+
+    except json.JSONDecodeError as error:
+        app.logger.exception(
+            "Groovelytics returned invalid JSON"
+        )
+
+        return jsonify({
+            "error": "The AI returned an invalid coaching response."
+        }), 502
+
+    except Exception as error:
+        app.logger.exception(
+            "Groovelytics coaching generation failed"
+        )
+
+        return jsonify({
+            "error": "Coaching generation failed."
+        }), 500
+    
+#
+# END GROOVELYTICS COACHING ENDPOINT
+#
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host="127.0.0.1",
+        port=5000,
+        debug=True
+    )
 
 # gracefully end
-print("Bye...")
 sys.exit(0)    
